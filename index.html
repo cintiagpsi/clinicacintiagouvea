@@ -5,50 +5,95 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Clínica Cíntia Gouvea</title>
 <meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#9B1BC4">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F6F0E4">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-title" content="Consultório">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Poppins:wght@400;500&display=swap">
 <style>
-  :root{--bg1:#F7F2E8;--bg2:#E6D3EC;--bg3:#B86AD6;--card:#FFFFFF;--ink:#2A2630;--muted:#6E6878;--gold:#9C7A3C;--accent:#9B1BC4;--accent-ink:#FFFFFF}
-  @media (prefers-color-scheme:dark){:root{--bg1:#1B1720;--bg2:#2A1F31;--bg3:#4A1D5E;--card:#211C27;--ink:#EEEAF3;--muted:#A8A2B3;--gold:#D8B874;--accent:#C77DE0;--accent-ink:#1A0F20}}
+  /* Visual único, sempre claro: creme, dourado e berinjela. */
+  :root{
+    --creme:#F6F0E4; --marfim:#FFFCF6; --ouro:#A8843F; --ouro-claro:#D9BF85; --ouro-escuro:#7A5E28;
+    --berinjela:#3B1F47; --berinjela-2:#55306A; --texto:#3A3340; --suave:#7C7484;
+    --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif; --sans:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+    color-scheme:light;
+  }
   *{box-sizing:border-box}
   html,body{height:100%;margin:0}
-  body{font-family:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(150deg,var(--bg1) 0%,var(--bg2) 50%,var(--bg3) 100%);display:grid;place-items:center;padding:24px max(16px,env(safe-area-inset-left)) 24px max(16px,env(safe-area-inset-right))}
-  main{width:100%;max-width:400px;background:var(--card);border-radius:16px;padding:32px 28px;box-shadow:0 14px 40px rgba(60,10,80,.22);display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
-  img.logo{width:230px;max-width:80%;height:auto}
-  p{margin:0;font-size:.92rem;color:var(--muted);line-height:1.5}
-  a.btn{display:block;width:100%;padding:14px 18px;border-radius:10px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600;font-size:1rem}
-  a.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-  .small{font-size:.78rem}
-  .gold{color:var(--gold);letter-spacing:.18em;text-transform:uppercase;font-size:.72rem;font-weight:500}
-  details{width:100%;text-align:left;font-size:.82rem;color:var(--muted)}
-  summary{cursor:pointer;color:var(--gold);font-weight:500}
-  ol{padding-left:18px;margin:8px 0 0;display:flex;flex-direction:column;gap:4px}
+  body{
+    font-family:var(--sans); color:var(--texto); background:var(--creme);
+    background-image:
+      radial-gradient(1200px 600px at 50% -10%, #FFFFFF 0%, rgba(255,255,255,0) 60%),
+      radial-gradient(700px 500px at 100% 110%, rgba(217,191,133,.28) 0%, rgba(217,191,133,0) 60%),
+      radial-gradient(600px 420px at 0% 100%, rgba(85,48,106,.10) 0%, rgba(85,48,106,0) 60%);
+    display:flex; align-items:center; justify-content:center; min-height:100%;
+    padding:max(24px,env(safe-area-inset-top)) max(20px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(20px,env(safe-area-inset-left));
+  }
+  main{width:100%; max-width:420px; text-align:center; display:flex; flex-direction:column; align-items:center}
+  .moldura{
+    width:100%; background:var(--marfim); border-radius:22px; padding:44px 32px 34px;
+    border:1px solid rgba(168,132,63,.28);
+    box-shadow:0 1px 0 rgba(255,255,255,.9) inset, 0 24px 60px -24px rgba(59,31,71,.30), 0 4px 14px rgba(122,94,40,.08);
+    position:relative;
+  }
+  .moldura::before{content:""; position:absolute; inset:8px; border-radius:16px; border:1px solid rgba(168,132,63,.18); pointer-events:none}
+  img.logo{width:250px; max-width:82%; height:auto; display:block; margin:0 auto}
+  .fio{display:flex; align-items:center; gap:12px; width:72%; margin:22px auto 14px; color:var(--ouro)}
+  .fio::before,.fio::after{content:""; flex:1; height:1px; background:linear-gradient(90deg, rgba(168,132,63,0), rgba(168,132,63,.7), rgba(168,132,63,0))}
+  .fio span{font-size:.7rem}
+  h1{font-family:var(--serif); font-weight:500; font-size:1.65rem; letter-spacing:.02em; color:var(--berinjela); margin:0}
+  .sub{font-family:var(--serif); font-style:italic; font-size:1.05rem; color:var(--suave); margin:4px 0 26px}
+  a.entrar{
+    display:flex; align-items:center; justify-content:center; gap:10px; width:100%; padding:16px 20px; border-radius:14px;
+    background:linear-gradient(180deg, var(--berinjela-2), var(--berinjela)); color:#F3E3BC; text-decoration:none;
+    font-weight:500; font-size:1rem; letter-spacing:.04em; border:1px solid rgba(217,191,133,.45);
+    box-shadow:0 10px 24px -10px rgba(59,31,71,.65); transition:transform .15s, box-shadow .15s;
+  }
+  a.entrar:hover{transform:translateY(-1px); box-shadow:0 14px 28px -10px rgba(59,31,71,.7)}
+  a.entrar:focus-visible{outline:3px solid var(--ouro-claro); outline-offset:3px}
+  a.entrar svg{width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:1.8}
+  .nota{font-size:.78rem; color:var(--suave); margin:14px 0 0; line-height:1.55}
+  details{margin-top:22px; width:100%; text-align:left; border-top:1px solid rgba(168,132,63,.22); padding-top:16px}
+  summary{cursor:pointer; list-style:none; text-align:center; font-size:.82rem; color:var(--ouro-escuro); font-weight:500}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:" ▾"}
+  details[open] summary::after{content:" ▴"}
+  ol{margin:12px 0 0; padding-left:20px; font-size:.8rem; color:var(--texto); display:flex; flex-direction:column; gap:6px; line-height:1.5}
+  footer{margin-top:22px; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ouro-escuro); opacity:.85}
+  @media (max-width:380px){ .moldura{padding:36px 22px 28px} h1{font-size:1.45rem} }
+  @media (prefers-reduced-motion:reduce){ a.entrar{transition:none} }
 </style>
 </head>
 <body>
 <main>
-  <img class="logo" src="logo.png" alt="Cíntia Gouvea – Psicanalista">
-  <span class="gold">Sistema do consultório</span>
-  <a class="btn" id="entrar" href="https://claude.ai/artifact/QvJxexWVPfXmub9F8HTLX8">Entrar no sistema</a>
-  <p class="small" id="msg">Toque em “Entrar no sistema”. Use a sua conta do claude.ai.</p>
-  <details>
-    <summary>Como colocar o ícone no celular</summary>
-    <ol>
-      <li><b>Android (Chrome):</b> menu ⋮ → <b>Adicionar à tela inicial</b>.</li>
-      <li><b>iPhone (Safari):</b> Compartilhar → <b>Adicionar à Tela de Início</b>.</li>
-      <li><b>Computador:</b> Ctrl + D (ou ⌘ + D) para salvar nos favoritos.</li>
-    </ol>
-    <p class="small" style="margin-top:8px">O sistema fica protegido pela sua conta do claude.ai: entre com ela quando pedir.</p>
-  </details>
+  <div class="moldura">
+    <img class="logo" src="logo.png" alt="Cíntia Gouvea – Psicanalista">
+    <div class="fio"><span>✦</span></div>
+    <h1>Sistema do Consultório</h1>
+    <p class="sub">Agenda, prontuários e financeiro</p>
+    <a class="entrar" id="entrar" href="https://claude.ai/artifact/QvJxexWVPfXmub9F8HTLX8">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3M14 4h5a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-5"/></svg>
+      Entrar no sistema
+    </a>
+    <p class="nota" id="msg">Acesso protegido pela sua conta do claude.ai.</p>
+    <details>
+      <summary>Colocar o ícone no celular</summary>
+      <ol>
+        <li><b>Android (Chrome):</b> menu ⋮ → <b>Adicionar à tela inicial</b>.</li>
+        <li><b>iPhone (Safari):</b> Compartilhar → <b>Adicionar à Tela de Início</b>.</li>
+        <li><b>Computador:</b> Ctrl + D (no Mac, ⌘ + D) para salvar nos favoritos.</li>
+      </ol>
+    </details>
+  </div>
+  <footer>Psicanalista · CNP 08/6510</footer>
 </main>
 <script>
-  // Quando aberto pelo ícone da tela inicial, entra direto no sistema.
+  // Aberto pelo ícone da tela inicial: entra direto no sistema.
   var standalone = (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone;
   if (standalone || /[?&]abrir\b/.test(location.search)) {
     document.getElementById('msg').textContent = 'Abrindo o sistema…';
