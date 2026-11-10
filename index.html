@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Clínica Cíntia Gouvea</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#9B1BC4">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Consultório">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+<style>
+  :root{--bg1:#F7F2E8;--bg2:#E6D3EC;--bg3:#B86AD6;--card:#FFFFFF;--ink:#2A2630;--muted:#6E6878;--gold:#9C7A3C;--accent:#9B1BC4;--accent-ink:#FFFFFF}
+  @media (prefers-color-scheme:dark){:root{--bg1:#1B1720;--bg2:#2A1F31;--bg3:#4A1D5E;--card:#211C27;--ink:#EEEAF3;--muted:#A8A2B3;--gold:#D8B874;--accent:#C77DE0;--accent-ink:#1A0F20}}
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0}
+  body{font-family:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(150deg,var(--bg1) 0%,var(--bg2) 50%,var(--bg3) 100%);display:grid;place-items:center;padding:24px max(16px,env(safe-area-inset-left)) 24px max(16px,env(safe-area-inset-right))}
+  main{width:100%;max-width:400px;background:var(--card);border-radius:16px;padding:32px 28px;box-shadow:0 14px 40px rgba(60,10,80,.22);display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
+  img.logo{width:230px;max-width:80%;height:auto}
+  p{margin:0;font-size:.92rem;color:var(--muted);line-height:1.5}
+  a.btn{display:block;width:100%;padding:14px 18px;border-radius:10px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600;font-size:1rem}
+  a.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .small{font-size:.78rem}
+  .gold{color:var(--gold);letter-spacing:.18em;text-transform:uppercase;font-size:.72rem;font-weight:500}
+  details{width:100%;text-align:left;font-size:.82rem;color:var(--muted)}
+  summary{cursor:pointer;color:var(--gold);font-weight:500}
+  ol{padding-left:18px;margin:8px 0 0;display:flex;flex-direction:column;gap:4px}
+</style>
+</head>
+<body>
+<main>
+  <img class="logo" src="logo.png" alt="Cíntia Gouvea – Psicanalista">
+  <span class="gold">Sistema do consultório</span>
+  <a class="btn" id="entrar" href="https://claude.ai/artifact/QvJxexWVPfXmub9F8HTLX8">Entrar no sistema</a>
+  <p class="small" id="msg">Toque em “Entrar no sistema”. Use a sua conta do claude.ai.</p>
+  <details>
+    <summary>Como colocar o ícone no celular</summary>
+    <ol>
+      <li><b>Android (Chrome):</b> menu ⋮ → <b>Adicionar à tela inicial</b>.</li>
+      <li><b>iPhone (Safari):</b> Compartilhar → <b>Adicionar à Tela de Início</b>.</li>
+      <li><b>Computador:</b> Ctrl + D (ou ⌘ + D) para salvar nos favoritos.</li>
+    </ol>
+    <p class="small" style="margin-top:8px">O sistema fica protegido pela sua conta do claude.ai: entre com ela quando pedir.</p>
+  </details>
+</main>
+<script>
+  // Quando aberto pelo ícone da tela inicial, entra direto no sistema.
+  var standalone = (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone;
+  if (standalone || /[?&]abrir\b/.test(location.search)) {
+    document.getElementById('msg').textContent = 'Abrindo o sistema…';
+    setTimeout(function(){ location.href = document.getElementById('entrar').href; }, 600);
+  }
+</script>
+</body>
+</html>
